@@ -1,44 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Button,Text, View, Image } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './Screens/Home';
+import Details from './Screens/Details';
 
-import dedinho from './assets/dedinho.gif';
-import AppName from './index.js';
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <>
-      <View style={styles.container}>
-        <AppName>Fala novato</AppName>
-        <Text style={styles.textMaior}>Seja bem-vindo!</Text>
-        <LinearGradient colors={['#5C6480', 'transparent']}
-          style={styles.background}>
-          <Text style={styles.texto}>Esta pronto para iniciar?!</Text>
-          <Button title="Precione-me"
-            color="#f194ff"
-            onPress={() => Alert.alert('Button with adjusted color pressed')} />
-        </LinearGradient>
-        <Image source={dedinho} style={{ width: 300, height: 300, }} ></Image>
-        <StatusBar style="auto" />
-      </View>
-    </>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Details" component={Details} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  texto: {
-    padding: '60px',
-    fontSize: '40px',
-    color: 'white',
-    borderRadius: '20px',
-  },
-  textMaior: {
-    fontSize: '35px',
-  }
-});
