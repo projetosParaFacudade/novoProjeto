@@ -1,17 +1,22 @@
 
 import React from 'react';
-import { View, Text, Button, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet} from 'react-native';
+import Button from '../components/button.js';
 
 export default function Details() {
   return (
     <>
       <View style={styles.body}>
         <View style={styles.header}>
-          <Text style={styles.innerTextTitle}>Go work</Text>
+          <Text style={styles.innerTextTitle}>Bem vindo</Text>
+          <Text style={styles.innerText}>Shalom Pereira dos santos</Text>
+        </View>
+        <View>
+          {/* demais options */}
         </View>
         <View style={styles.buttonLocale}>
           <Button
-            title="Back"
+            title="Voltar"
             onPress={() => navigation.navigate('Home')} />
         </View>
       </View>
@@ -30,7 +35,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#66C3E2',
   },
   buttonLocale:{
-    height: '400px',
+    height: '700px',
     padding: '30px',
     borderTopLeftRadius: '50px',
     borderTopRightRadius: '50px',
